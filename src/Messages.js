@@ -1,24 +1,26 @@
-import {Component} from "react";
-import React from "react";
+import React, { Component } from 'react';
+import uniqueString from "unique-string"; 
 
 class Messages extends Component {
   render() {
-    const {messages} = this.props;
+    const {messages} = this.props;    
     return (
       <ul className="Messages-list">
         {messages.map(m => this.renderMessage(m))}
+        <div id="anchor"></div>
       </ul>
     );
   }
 
   renderMessage(message) {
     const {member, text} = message;
+    const id = uniqueString(); 
     const {currentMember} = this.props;
     const messageFromMe = member.id === currentMember.id;
     const className = messageFromMe ?
       "Messages-message currentMember" : "Messages-message";
     return (
-      <li className={className}>
+      <li key={id} className={className}> 
       <span
         className="avatar"
         style={{backgroundColor: member.clientData.color}}
@@ -29,8 +31,8 @@ class Messages extends Component {
           </div>
           <div className="text">{text}</div>
         </div>
-      </li>
-    );
+      </li>      
+    );    
   }
 }
 

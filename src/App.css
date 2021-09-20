@@ -26,6 +26,22 @@
   padding-left: 0;
   flex-grow: 1;
   overflow: auto;
+  scrollbar-color: orangered white;
+}
+
+#anchor {
+  overflow-anchor: auto;
+  height: 1px;
+}
+
+::-webkit-scrollbar { 
+  background: white; 
+}
+
+::-webkit-scrollbar-thumb { 
+  background-color: orangered; 
+  -webkit-border-radius: 1ex; 
+  border-radius: 1ex; 
 }
 
 .Messages-message {
@@ -70,6 +86,7 @@
   background-color: cornflowerblue;
   color: white;
   display: inline-block;
+  text-align: left;
 }
 
 .currentMember > .Message-content .text {
